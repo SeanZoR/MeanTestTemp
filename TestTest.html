@@ -1,0 +1,53 @@
+<html>
+<body>
+
+<input id="valueToInput" type="text"/>
+
+<input type="button" value="Submit Value"
+  onclick="sortableArray.add(valueToInput.value); valueToInput.value = '';"/>
+
+<input type="button" value="Sort"
+  onclick="sortableArray.sort()"/>
+
+<script>
+
+var sortableArray = {
+  isSorted : false,
+  arr : [],
+  add : function (objectToAdd){
+    arr.push(objectToAdd);
+  },
+  sort : function(){
+    for (var ex=0; ex<arr.length - 1; ex++){
+      for (var i=0; i<arr.length - 1; i++){
+        if (arr[i] > arr[i+1]){
+          var helper = arr[i];
+          arr[i] = arr[i+1];
+          arr[i+1] = helper;
+        }
+      }
+    }
+
+    console.log(arr);
+  }
+}
+
+var arr = [];
+
+
+</script>
+</body>
+</html>
+
+<!--
+
+{
+  is_sorted: false,
+   values: [
+    "Hello",
+    "A",
+    "B"
+   ]
+}
+
+-->
